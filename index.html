@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07152F">
+  <meta name="description" content="Helios Digital Technology builds modern websites, applications and AI-assisted digital products for businesses and startups.">
+  <title>Helios Digital Technology | Web, Application & Vibe Coding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #f7f1dc;
+      --muted: #aab5c5;
+      --blue: #e5ad4a;
+      --blue-dark: #ce8b2b;
+      --line: rgba(223, 233, 246, .13);
+      --paper: #101824;
+      --white: #172231;
+      --mint: #78cbd5;
+      --shadow: 0 22px 60px rgba(0, 0, 0, .28);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: "DM Sans", sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .shell { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
+    .topbar { position: sticky; top: 0; z-index: 10; background: rgba(16,24,36,.88); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(223,233,246,.1); }
+    .nav { height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; font-family: Manrope, sans-serif; font-weight: 800; letter-spacing: -.045em; font-size: 17px; white-space: nowrap; }
+    .brand-mark { width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #d4a34a; border-radius: 50%; color: #f1bd5b; background: #111c2b; box-shadow: 0 0 18px #66cad526; }
+    .brand-mark img { display: block; width: 31px; height: 31px; }
+    .nav-links { display: flex; align-items: center; gap: 31px; color: #c1cad6; font-size: 13px; font-weight: 600; }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-cta, .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; border-radius: 9px; background: var(--blue); color: #172231; font-weight: 700; box-shadow: 0 8px 18px #e5ad4a26; transition: transform .2s, background .2s, box-shadow .2s; }
+    .nav-cta { padding: 12px 17px; font-size: 13px; }
+    .button { padding: 15px 20px; font-size: 14px; }
+    .nav-cta:hover, .button:hover { transform: translateY(-2px); background: var(--blue-dark); box-shadow: 0 12px 24px #1769e83b; }
+    .button.secondary { background: #182435; color: var(--ink); box-shadow: inset 0 0 0 1px rgba(223,233,246,.2); }
+    .button.secondary:hover { background: #223249; }
+    .arrow { font-size: 18px; line-height: 12px; }
+    .hero { position: relative; padding: 89px 0 82px; overflow: hidden; }
+    .hero::before { content: ""; position: absolute; width: 620px; height: 620px; border-radius: 50%; right: -175px; top: -230px; background: radial-gradient(circle, rgba(229,173,74,.15) 0%, rgba(75,174,196,.08) 38%, rgba(16,24,36,0) 71%); pointer-events: none; }
+    .hero-grid { position: relative; display: grid; grid-template-columns: 1.03fr .97fr; align-items: center; gap: 64px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; color: #edbd61; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; }
+    .eyebrow .dot { width: 7px; height: 7px; border-radius: 99px; background: #66c5d0; box-shadow: 0 0 0 4px #66c5d01c; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { font-family: Manrope, sans-serif; }
+    h1 { max-width: 650px; margin: 20px 0 19px; font-size: clamp(43px, 5.5vw, 69px); line-height: 1.035; letter-spacing: -.065em; }
+    h1 span { color: #f0bd5e; }
+    .hero-copy { max-width: 510px; color: var(--muted); font-size: 17px; line-height: 1.75; margin-bottom: 27px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .trust-note { margin-top: 27px; display: flex; align-items: center; gap: 11px; color: #738197; font-size: 12px; }
+    .avatars { display: flex; padding-left: 3px; }
+    .avatars span { width: 25px; height: 25px; display: grid; place-items: center; margin-left: -4px; border: 2px solid var(--paper); border-radius: 50%; background: #d8e0e8; color: #243752; font-size: 9px; font-weight: 800; }
+    .avatars span:nth-child(2) { background: #f3d495; color: #674718; }
+    .avatars span:nth-child(3) { background: #b9e4e4; color: #1b5056; }
+    .visual { position: relative; min-height: 410px; display: grid; place-items: center; }
+    .orb { position: absolute; width: 338px; height: 338px; border: 1px solid rgba(229,173,74,.35); border-radius: 50%; background: radial-gradient(circle, rgba(229,173,74,.14), rgba(92,194,203,.08) 48%, transparent 72%); box-shadow: inset 0 0 55px rgba(102,197,208,.08); }
+    .dashboard { position: relative; width: min(100%, 470px); min-height: 300px; border: 1px solid rgba(220,231,245,.17); border-radius: 16px; padding: 22px; background: rgba(24,35,52,.94); box-shadow: 0 32px 80px rgba(0,0,0,.4); transform: rotate(-2deg); }
+    .dash-top { display: flex; align-items: center; justify-content: space-between; padding-bottom: 18px; border-bottom: 1px solid rgba(223,233,246,.12); }
+    .dash-label { font-size: 11px; color: #9eacbe; font-weight: 600; }
+    .dash-title { margin-top: 5px; font: 700 17px Manrope, sans-serif; letter-spacing: -.03em; }
+    .dash-menu { display: flex; gap: 4px; }
+    .dash-menu i { width: 5px; height: 5px; border-radius: 50%; background: #78889d; }
+    .dash-stats { display: grid; grid-template-columns: 1.2fr .8fr; gap: 12px; padding-top: 17px; }
+    .stat-card { padding: 15px; border: 1px solid rgba(223,233,246,.12); border-radius: 11px; background: rgba(11,19,30,.24); }
+    .stat-card small { color: #9eacbe; font-size: 10px; }
+    .stat-card strong { display: block; margin-top: 7px; font: 700 21px Manrope, sans-serif; letter-spacing: -.05em; }
+    .stat-card em { color: #72d7b0; font-size: 10px; font-style: normal; font-weight: 700; }
+    .chart { grid-column: 1 / -1; height: 132px; position: relative; overflow: hidden; padding: 14px; border: 1px solid rgba(223,233,246,.1); border-radius: 11px; background: linear-gradient(180deg, rgba(14,24,37,.68), rgba(19,31,47,.35)); }
+    .chart-lines { position: absolute; inset: 16px 14px; display: flex; flex-direction: column; justify-content: space-between; }
+    .chart-lines i { display: block; width: 100%; border-top: 1px dashed rgba(216,229,244,.13); }
+    .chart svg { position: absolute; inset: 15px 14px 18px; width: calc(100% - 28px); height: calc(100% - 33px); overflow: visible; }
+    .float-card { position: absolute; right: -3px; bottom: 28px; display: flex; align-items: center; gap: 10px; padding: 12px 15px; border: 1px solid rgba(223,233,246,.17); border-radius: 12px; background: #1b293b; box-shadow: var(--shadow); transform: rotate(2deg); }
+    .float-icon { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 9px; color: #73cbd3; background: #203e4c; font-weight: 800; }
+    .float-card strong { display: block; font-size: 11px; }
+    .float-card small { display: block; margin-top: 3px; color: #aab5c5; font-size: 9px; }
+    .service-wrap { padding: 76px 0 88px; color: #10233f; --muted: #586982; background: #f8f6ef; border-top: 1px solid #eae5d8; }
+    .section-heading { max-width: 640px; margin: 0 auto 42px; text-align: center; }
+    .section-heading h2 { margin: 14px 0 12px; font-size: clamp(32px,4vw,46px); line-height: 1.12; letter-spacing: -.055em; }
+    .section-heading p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.7; }
+    .service-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .service-card { min-height: 294px; position: relative; overflow: hidden; padding: 25px 24px 23px; border: 1px solid #e8e2d4; border-radius: 14px; background: #fffefa; transition: transform .22s, box-shadow .22s, border-color .22s; }
+    .service-card:hover { transform: translateY(-5px); border-color: #d4b36e; box-shadow: 0 18px 40px rgba(45,43,33,.1); }
+    .service-card::after { content: ""; position: absolute; right: -44px; top: -55px; width: 148px; height: 148px; border-radius: 50%; background: #f9efd9; }
+    .service-card:nth-child(2)::after { background: #e9f5f1; }
+    .service-card:nth-child(3)::after { background: #eaf4f5; }
+    .card-number { position: relative; z-index: 1; color: #8a806e; font-size: 11px; font-weight: 700; letter-spacing: .08em; }
+    .service-icon { width: 48px; height: 48px; display: grid; place-items: center; margin: 27px 0 20px; border-radius: 13px; color: #a36b13; background: #fbf0d7; }
+    .service-card:nth-child(2) .service-icon { color: #16816e; background: #e5f4ed; }
+    .service-card:nth-child(3) .service-icon { color: #278a9a; background: #e3f2f3; }
+    .service-icon svg { width: 24px; height: 24px; }
+    .service-card h3 { margin-bottom: 10px; font-size: 20px; letter-spacing: -.04em; }
+    .service-card p { min-height: 48px; margin-bottom: 21px; color: var(--muted); font-size: 13px; line-height: 1.65; }
+    .text-link { display: inline-flex; align-items: center; gap: 7px; color: #9a6410; font-size: 12px; font-weight: 700; }
+    .text-link span { transition: transform .2s; }
+    .text-link:hover span { transform: translateX(4px); }
+    .principle { padding: 49px 0; color: #f7f1dc; --muted: #aab5c5; background: #152235; border-top: 1px solid rgba(223,233,246,.1); }
+    .principle-inner { display: flex; justify-content: space-between; align-items: center; gap: 35px; }
+    .principle-copy { max-width: 560px; }
+    .principle h2 { margin: 13px 0 8px; font-size: 27px; letter-spacing: -.045em; }
+    .principle p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
+    .principle-points { display: flex; gap: 26px; }
+    .point { min-width: 116px; }
+    .point strong { display: block; font: 800 22px Manrope, sans-serif; letter-spacing: -.05em; }
+    .point span { display: block; margin-top: 5px; color: #b0bccb; font-size: 11px; }
+    .contact { padding: 78px 0; background: #0b1420; color: white; border-top: 1px solid rgba(229,173,74,.24); }
+    .contact-inner { display: flex; align-items: center; justify-content: space-between; gap: 36px; }
+    .contact-logo { display: block; width: 174px; height: 58px; margin: 0 0 23px; object-fit: contain; object-position: left center; }
+    .contact .eyebrow { color: #edbd61; }
+    .contact h2 { max-width: 600px; margin: 13px 0 10px; font-size: clamp(32px,4.5vw,48px); line-height: 1.08; letter-spacing: -.055em; }
+    .contact p { margin: 0; color: #b9c3d0; font-size: 14px; line-height: 1.6; }
+    .contact .button { flex-shrink: 0; background: #e5ad4a; color: #172231; box-shadow: none; }
+    .contact .button:hover { background: #f0bf66; }
+    footer { padding: 24px 0; background: #080f18; color: #b6c0ce; border-top: 1px solid rgba(223,233,246,.08); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 18px; font-size: 11px; }
+    .footer-brand { color: #fff; }
+    .footer-meta { display: flex; flex-wrap: wrap; gap: 20px; }
+    .footer-meta a:hover { color: white; }
+    @media (max-width: 900px) {
+      .hero-grid { gap: 24px; grid-template-columns: 1fr 0.9fr; }
+      .visual { min-height: 340px; }
+      .orb { width: 270px; height: 270px; }
+      .dashboard { padding: 16px; }
+      .service-grid { gap: 12px; }
+      .service-card { padding: 20px; }
+      .principle-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (max-width: 680px) {
+      .shell { width: min(100% - 36px, 500px); }
+      .nav { height: 68px; }
+      .nav-links { display: none; }
+      .nav-cta { padding: 10px 13px; font-size: 12px; }
+      .brand { font-size: 15px; }
+      .hero { padding: 55px 0 48px; }
+      .hero-grid { display: flex; flex-direction: column; align-items: stretch; gap: 22px; }
+      h1 { font-size: clamp(43px, 12vw, 58px); }
+      .hero-copy { font-size: 15px; }
+      .visual { min-height: 325px; }
+      .dashboard { transform: rotate(-1deg); }
+      .float-card { right: -3px; bottom: 8px; }
+      .service-wrap { padding: 59px 0; }
+      .section-heading { margin-bottom: 28px; text-align: left; }
+      .section-heading h2 { font-size: 35px; }
+      .service-grid { grid-template-columns: 1fr; }
+      .service-card { min-height: 0; padding: 22px; }
+      .service-icon { margin: 20px 0 15px; }
+      .service-card p { min-height: 0; }
+      .principle { padding: 39px 0; }
+      .principle-points { width: 100%; gap: 12px; justify-content: space-between; }
+      .point { min-width: 0; }
+      .contact { padding: 56px 0; }
+      .contact-inner { align-items: flex-start; flex-direction: column; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+      .footer-meta { gap: 13px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
+    /* Helios logo palette: deep navy, electric blue, cyan and violet. */
+    :root { color-scheme: dark; --ink: #f7f9ff; --muted: #aab8d0; --blue: #2563ff; --blue-dark: #174ce0; --line: rgba(190,208,236,.15); --paper: #07152f; --white: #0c1d3a; --mint: #06b6d4; --shadow: 0 22px 60px rgba(0,0,0,.32); }
+    body { background: var(--paper); color: var(--ink); }
+    .topbar { background: rgba(7,21,47,.88); border-bottom-color: rgba(190,208,236,.12); }
+    .brand-mark { display: block; width: 174px; height: 58px; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+    .brand-mark img { display: block; width: 100%; height: 100%; object-fit: contain; }
+    .nav-links { color: #c2cce0; }
+    .nav-links a:hover, .text-link:hover { color: #75d9ef; }
+    .nav-cta, .button { background: linear-gradient(105deg,#2563ff,#0ba9e9 62%,#7655f5); color: #fff; box-shadow: 0 9px 25px rgba(37,99,255,.25); }
+    .nav-cta:hover, .button:hover { background: linear-gradient(105deg,#3974ff,#17bce8 62%,#8b6bff); box-shadow: 0 13px 30px rgba(37,99,255,.35); }
+    .button.secondary { background: rgba(255,255,255,.045); color: #f7f9ff; box-shadow: inset 0 0 0 1px rgba(208,222,245,.25); }
+    .button.secondary:hover { background: rgba(255,255,255,.09); }
+    .hero::before { background: radial-gradient(circle,rgba(37,99,255,.22),rgba(6,182,212,.10) 36%,rgba(139,92,246,.13) 54%,transparent 72%); }
+    .eyebrow { color: #70d9ed; }
+    .eyebrow .dot { background: #8b5cf6; box-shadow: 0 0 0 4px rgba(139,92,246,.18); }
+    h1 span { color: transparent; background: linear-gradient(95deg,#47c9f5 4%,#3973ff 52%,#a46bff 100%); background-clip: text; -webkit-background-clip: text; }
+    .trust-note { color: #aab8d0; }
+    .visual .orb { border-color: rgba(100,164,255,.36); background: radial-gradient(circle,rgba(37,99,255,.18),rgba(6,182,212,.1) 46%,rgba(139,92,246,.08) 64%,transparent 74%); box-shadow: inset 0 0 60px rgba(37,99,255,.13); }
+    .dashboard { border-color: rgba(190,208,236,.2); background: rgba(12,29,58,.93); }
+    .stat-card em { color: #75d9ef; }
+    .chart { background: linear-gradient(180deg,rgba(13,36,77,.8),rgba(11,25,50,.5)); }
+    .float-icon { color: #7ce0f0; background: rgba(6,182,212,.13); }
+    .service-wrap { color: #f7f9ff; --muted: #aab8d0; background: #091a38; border-color: rgba(190,208,236,.12); }
+    .service-card { border-color: rgba(190,208,236,.15); background: linear-gradient(150deg,rgba(19,40,78,.95),rgba(11,27,57,.98)); box-shadow: 0 16px 42px rgba(0,0,0,.12); }
+    .service-card:hover { border-color: rgba(79,145,255,.65); box-shadow: 0 22px 50px rgba(0,0,0,.3),0 0 35px rgba(37,99,255,.12); }
+    .service-card::after { background: radial-gradient(circle,rgba(37,99,255,.2),rgba(37,99,255,0) 70%); }
+    .service-card:nth-child(2)::after { background: radial-gradient(circle,rgba(6,182,212,.2),rgba(6,182,212,0) 70%); }
+    .service-card:nth-child(3)::after { background: radial-gradient(circle,rgba(139,92,246,.23),rgba(139,92,246,0) 70%); }
+    .card-number { color: #8fa6cb; }
+    .service-icon { color: #72a1ff; background: rgba(37,99,255,.17); }
+    .service-card:nth-child(2) .service-icon { color: #66d5e8; background: rgba(6,182,212,.15); }
+    .service-card:nth-child(3) .service-icon { color: #b69aff; background: rgba(139,92,246,.17); }
+    .text-link { color: #80cfff; }
+    .principle { color: #f7f9ff; --muted: #aab8d0; background: #0c2044; border-color: rgba(190,208,236,.1); }
+    .point span { color: #aab8d0; }
+    .contact { background: linear-gradient(115deg,#0a1b3b,#10275a 62%,#211d58); border-color: rgba(101,166,255,.25); }
+    .contact .eyebrow { color: #78dced; }
+    .contact .button { background: linear-gradient(105deg,#2563ff,#0ba9e9 62%,#7655f5); color: #fff; }
+    .contact .button:hover { background: linear-gradient(105deg,#3974ff,#17bce8 62%,#8b6bff); }
+    footer { background: #050f24; border-color: rgba(190,208,236,.1); }
+    .footer-brand { color: #fff; }
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+    .theme-controls { position: relative; flex: 0 0 auto; }
+    .settings-trigger { display: grid; place-items: center; width: 40px; height: 40px; padding: 0; border: 1px solid rgba(190,208,236,.22); border-radius: 10px; color: #dce8fb; background: rgba(255,255,255,.04); cursor: pointer; transition: background .2s,border-color .2s,color .2s; }
+    .settings-trigger:hover, .settings-trigger[aria-expanded="true"] { background: rgba(255,255,255,.1); border-color: rgba(115,184,255,.55); color: #7bdcf0; }
+    .settings-trigger svg { width: 19px; height: 19px; }
+    .theme-menu { position: absolute; top: calc(100% + 10px); right: 0; z-index: 20; width: 205px; padding: 8px; border: 1px solid rgba(190,208,236,.18); border-radius: 13px; background: #102344; box-shadow: 0 18px 44px rgba(0,0,0,.35); }
+    .theme-menu[hidden] { display: none; }
+    .menu-heading { padding: 8px 10px 7px; color: #9eafc9; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .theme-option { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 40px; padding: 0 10px; border: 0; border-radius: 8px; color: #e8effb; background: transparent; text-align: left; font: 500 13px "DM Sans",sans-serif; cursor: pointer; }
+    .theme-option:hover { background: rgba(255,255,255,.08); }
+    .theme-option[aria-checked="true"] { color: #8be2ef; background: rgba(37,99,255,.16); }
+    .theme-option-icon { display: inline-grid; place-items: center; width: 18px; font-size: 15px; }
+    .theme-check { margin-left: auto; opacity: 0; }
+    .theme-option[aria-checked="true"] .theme-check { opacity: 1; }
+    :root[data-theme="light"] { color-scheme: light; --ink: #10213c; --muted: #5d6d85; --line: rgba(23,52,94,.14); --paper: #f4f7fc; --white: #fff; --shadow: 0 22px 60px rgba(17,44,83,.1); }
+    :root[data-theme="light"] body { color: #10213c; background: #f4f7fc; }
+    :root[data-theme="light"] .topbar { background: rgba(255,255,255,.9); border-bottom-color: rgba(23,52,94,.12); }
+    :root[data-theme="light"] .nav-links { color: #43536c; }
+    :root[data-theme="light"] .eyebrow { color: #285bd8; }
+    :root[data-theme="light"] .nav-links a:hover, :root[data-theme="light"] .text-link:hover { color: #174ce0; }
+    :root[data-theme="light"] .text-link { color: #2456c8; }
+    :root[data-theme="light"] .settings-trigger { color: #354967; background: #fff; border-color: rgba(23,52,94,.18); }
+    :root[data-theme="light"] .settings-trigger:hover, :root[data-theme="light"] .settings-trigger[aria-expanded="true"] { color: #285bd8; background: #f1f5fc; border-color: rgba(37,99,255,.4); }
+    :root[data-theme="light"] .theme-menu { border-color: rgba(23,52,94,.14); background: #fff; box-shadow: 0 18px 44px rgba(17,44,83,.18); }
+    :root[data-theme="light"] .menu-heading { color: #70809a; }
+    :root[data-theme="light"] .theme-option { color: #263a58; }
+    :root[data-theme="light"] .theme-option:hover { background: #f1f5fc; }
+    :root[data-theme="light"] .theme-option[aria-checked="true"] { color: #174ce0; background: #edf3ff; }
+    :root[data-theme="light"] .hero::before { background: radial-gradient(circle,rgba(37,99,255,.12),rgba(6,182,212,.07) 36%,rgba(139,92,246,.08) 54%,transparent 72%); }
+    :root[data-theme="light"] .hero-copy, :root[data-theme="light"] .trust-note { color: #5d6d85; }
+    :root[data-theme="light"] .button.secondary { color: #1d3150; background: rgba(255,255,255,.85); box-shadow: inset 0 0 0 1px rgba(23,52,94,.2); }
+    :root[data-theme="light"] .button.secondary:hover { background: #fff; }
+    :root[data-theme="light"] .visual .orb { border-color: rgba(37,99,255,.23); background: radial-gradient(circle,rgba(37,99,255,.1),rgba(6,182,212,.07) 46%,rgba(139,92,246,.06) 64%,transparent 74%); box-shadow: inset 0 0 60px rgba(37,99,255,.07); }
+    :root[data-theme="light"] .dashboard { border-color: rgba(23,52,94,.13); background: rgba(255,255,255,.96); box-shadow: 0 28px 70px rgba(24,55,101,.14); }
+    :root[data-theme="light"] .dash-top { border-bottom-color: rgba(23,52,94,.12); }
+    :root[data-theme="light"] .dash-label, :root[data-theme="light"] .stat-card small { color: #667791; }
+    :root[data-theme="light"] .dash-menu i { background: #9aabc2; }
+    :root[data-theme="light"] .stat-card { border-color: rgba(23,52,94,.12); background: #f7f9fd; }
+    :root[data-theme="light"] .chart { border-color: rgba(23,52,94,.1); background: linear-gradient(180deg,#f2f7ff,#fff); }
+    :root[data-theme="light"] .chart-lines i { border-color: rgba(23,52,94,.12); }
+    :root[data-theme="light"] .float-card { border-color: rgba(23,52,94,.12); background: #fff; }
+    :root[data-theme="light"] .float-card small { color: #687891; }
+    :root[data-theme="light"] .service-wrap { color: #10213c; --muted: #5d6d85; background: #eaf0fa; border-color: rgba(23,52,94,.1); }
+    :root[data-theme="light"] .service-card { border-color: rgba(23,52,94,.12); background: linear-gradient(150deg,#fff,#f9fbff); box-shadow: 0 14px 36px rgba(19,47,90,.07); }
+    :root[data-theme="light"] .service-card:hover { border-color: rgba(37,99,255,.38); box-shadow: 0 20px 42px rgba(19,47,90,.12); }
+    :root[data-theme="light"] .card-number { color: #70809a; }
+    :root[data-theme="light"] .principle { color: #10213c; --muted: #5d6d85; background: #fff; border-color: rgba(23,52,94,.1); }
+    :root[data-theme="light"] .point span { color: #687891; }
+    :root[data-theme="light"] .contact { color: #10213c; background: linear-gradient(115deg,#e7f0ff,#e9f9fc 62%,#f0ebff); border-color: rgba(37,99,255,.15); }
+    :root[data-theme="light"] .contact .eyebrow { color: #285bd8; }
+    :root[data-theme="light"] .contact p { color: #50627c; }
+    :root[data-theme="light"] footer { color: #536580; background: #fff; border-color: rgba(23,52,94,.12); }
+    :root[data-theme="light"] .footer-brand { color: #10213c; }
+    :root[data-theme="light"] .footer-meta a:hover { color: #2563ff; }
+    @media (max-width: 680px) { .brand-mark { width: 144px; height: 49px; } .nav { gap: 10px; } .nav-actions { gap: 8px; } .settings-trigger { width: 36px; height: 38px; } .nav-cta { padding: 10px 12px; font-size: 12px; } }
+    @media (max-width: 390px) { .brand-mark { width: 125px; height: 42px; } .nav-cta { padding: 9px 10px; font-size: 11px; } .nav-cta .arrow { display: none; } }
+    .contact-copy { flex: 1 1 0; max-width: 590px; }
+    .contact-form { flex: 0 1 520px; width: 100%; padding: 25px; border: 1px solid rgba(190,208,236,.13); border-radius: 16px; background: rgba(5,15,36,.42); box-shadow: 0 20px 52px rgba(0,0,0,.16); }
+    .contact-form label { display: block; margin: 0 0 8px; color: #edf3ff; font-size: 13px; font-weight: 600; }
+    .contact-form input, .contact-form textarea { display: block; width: 100%; margin: 0 0 17px; padding: 13px 14px; border: 1px solid rgba(190,208,236,.16); border-radius: 9px; outline: none; color: #f7f9ff; background: rgba(255,255,255,.1); font: 14px "DM Sans",sans-serif; transition: border-color .2s,box-shadow .2s,background .2s; }
+    .contact-form input { min-height: 46px; }
+    .contact-form textarea { min-height: 112px; resize: vertical; }
+    .contact-form input::placeholder, .contact-form textarea::placeholder { color: #a5b1c3; }
+    .contact-form input:focus, .contact-form textarea:focus { border-color: #55baf4; box-shadow: 0 0 0 3px rgba(37,99,255,.18); }
+    .contact-form button { width: 100%; min-height: 48px; border: 0; border-radius: 9px; color: white; background: linear-gradient(105deg,#2563ff,#0ba9e9 62%,#7655f5); font: 700 14px "DM Sans",sans-serif; cursor: pointer; transition: filter .2s,transform .2s; }
+    .contact-form button:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    .contact-form-note, .contact-form-status { margin: 11px 0 0; color: #aab8d0; font-size: 11px; line-height: 1.5; }
+    .contact-form-status:empty { display: none; }
+    :root[data-theme="light"] .contact-form { border-color: rgba(23,52,94,.13); background: rgba(255,255,255,.75); box-shadow: 0 20px 52px rgba(19,47,90,.1); }
+    :root[data-theme="light"] .contact-form label { color: #1d3150; }
+    :root[data-theme="light"] .contact-form input, :root[data-theme="light"] .contact-form textarea { color: #10213c; border-color: rgba(23,52,94,.16); background: rgba(255,255,255,.9); }
+    :root[data-theme="light"] .contact-form input::placeholder, :root[data-theme="light"] .contact-form textarea::placeholder { color: #7a879b; }
+    :root[data-theme="light"] .contact-form-note, :root[data-theme="light"] .contact-form-status { color: #5d6d85; }
+    @media (max-width: 900px) { .contact-inner { align-items: stretch; flex-direction: column; } .contact-form { flex-basis: auto; max-width: 590px; } }
+    @media (max-width: 680px) { .contact-form { padding: 20px; } }
+    .hero { padding: 66px 0 56px; }
+    .service-wrap { padding: 56px 0 62px; }
+    .principle { padding: 36px 0; }
+    .contact { padding: 46px 0; }
+    .contact-logo { width: 150px; height: 50px; margin-bottom: 14px; }
+    .contact h2 { max-width: 700px; margin: 10px 0 8px; font-size: clamp(34px,4vw,42px); }
+    .contact-form { padding: 20px; }
+    .contact-form label { margin-bottom: 5px; font-size: 12px; }
+    .contact-form input, .contact-form textarea { margin-bottom: 11px; padding: 10px 12px; font-size: 13px; }
+    .contact-form input { min-height: 40px; }
+    .contact-form textarea { min-height: 84px; }
+    .contact-form button { min-height: 44px; }
+    .contact-form-note, .contact-form-status { margin-top: 8px; }
+    @media (max-width: 680px) {
+      .hero { padding: 44px 0 38px; }
+      .service-wrap { padding: 44px 0; }
+      .principle { padding: 30px 0; }
+      .contact { padding: 38px 0; }
+      .contact-form { padding: 17px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell nav">
+      <a class="brand" href="#top" aria-label="Helios Digital Technology home">
+        <span class="brand-mark"><img class="brand-logo" src="assets/helios-logo-light.svg" alt="Helios Digital Technology"></span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#approach">Our mission</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+      <div class="theme-controls">
+        <button class="settings-trigger" type="button" aria-label="Theme settings" aria-haspopup="menu" aria-expanded="false" aria-controls="theme-menu" title="Theme settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.4 2h3.2l.6 2.7c.7.2 1.4.6 2 1l2.6-1.1 1.6 2.8-2 1.9a6 6 0 0 1 0 2l2 1.9-1.6 2.8-2.6-1.1c-.6.5-1.3.8-2 1l-.6 2.7h-3.2l-.6-2.7c-.7-.2-1.4-.6-2-1l-2.6 1.1-1.6-2.8 2-1.9a6 6 0 0 1 0-2l-2-1.9 1.6-2.8 2.6 1.1c.6-.5 1.3-.8 2-1L10.4 2Z"/><circle cx="12" cy="11.5" r="2.6"/></svg>
+        </button>
+        <div class="theme-menu" id="theme-menu" role="menu" aria-label="Choose theme" hidden>
+          <div class="menu-heading">Appearance</div>
+          <button class="theme-option" type="button" role="menuitemradio" aria-checked="true" data-theme-option="light"><span class="theme-option-icon" aria-hidden="true">☼</span><span>Light theme</span><span class="theme-check" aria-hidden="true">✓</span></button>
+          <button class="theme-option" type="button" role="menuitemradio" aria-checked="false" data-theme-option="dark"><span class="theme-option-icon" aria-hidden="true">☾</span><span>Dark theme</span><span class="theme-check" aria-hidden="true">✓</span></button>
+        </div>
+      </div>
+      <a class="nav-cta" href="mailto:info@heliosdigitaltechnology.com?subject=Start%20your%20project">Start your project <span class="arrow">↗</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Technology that empowers</div>
+          <h1>Empowering businesses with <span>digital products.</span></h1>
+          <p class="hero-copy">Technology should empower, not complicate. We build websites, applications, and ideas brought to life with Vibe Coding for startups, SMEs, and enterprises.</p>
+          <div class="hero-actions">
+            <a class="button" href="#services">Explore our services <span class="arrow">→</span></a>
+            <a class="button secondary" href="mailto:info@heliosdigitaltechnology.com?subject=Start%20your%20project">Start your project</a>
+          </div>
+          <div class="trust-note">Simplifying technology for startups, SMEs, and enterprises</div>
+        </div>
+        <div class="visual" aria-label="Illustration of a digital product dashboard">
+          <div class="orb"></div>
+          <div class="dashboard">
+            <div class="dash-top"><div><div class="dash-label">PROJECT OVERVIEW</div><div class="dash-title">Your next big idea</div></div><div class="dash-menu"><i></i><i></i><i></i></div></div>
+            <div class="dash-stats">
+              <div class="stat-card"><small>What we build</small><strong>Web · App</strong></div>
+              <div class="stat-card"><small>How we build</small><strong>Human + AI</strong></div>
+              <div class="chart"><div class="chart-lines"><i></i><i></i><i></i></div><svg viewBox="0 0 380 105" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="area" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#68C8D1" stop-opacity=".28"/><stop offset="1" stop-color="#68C8D1" stop-opacity="0"/></linearGradient></defs><path d="M0 78 C25 72 32 80 58 63 S96 70 121 51 S156 60 180 43 S215 53 240 32 S277 46 300 28 S340 34 380 8 L380 105 L0 105Z" fill="url(#area)"/><path d="M0 78 C25 72 32 80 58 63 S96 70 121 51 S156 60 180 43 S215 53 240 32 S277 46 300 28 S340 34 380 8" fill="none" stroke="#68C8D1" stroke-width="3" stroke-linecap="round"/></svg></div>
+            </div>
+          </div>
+          <div class="float-card"><span class="float-icon">✦</span><span><strong>Idea → product</strong><small>Engineered with care</small></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="service-wrap" id="services">
+      <div class="shell">
+        <div class="section-heading">
+          <div class="eyebrow">Our services</div>
+          <h2>Three ways to move your business forward.</h2>
+          <p>Scalable, cost-effective digital solutions tailored to your business needs.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card" id="web-development">
+            <div class="card-number">01 / WEB</div>
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01M8 13l-2 2 2 2m4 0h4"/></svg></div>
+            <h3>Web development</h3>
+            <p>Custom websites and web applications built with modern technologies around your business needs.</p>
+            <a class="text-link" href="mailto:info@heliosdigitaltechnology.com?subject=Web%20development">Explore web development <span>→</span></a>
+          </article>
+          <article class="service-card" id="application-development">
+            <div class="card-number">02 / APPS</div>
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="2.2"/><path d="M10 5h4m-3 13h2"/></svg></div>
+            <h3>Application development</h3>
+            <p>Native and cross-platform mobile applications designed to bring your product idea to life.</p>
+            <a class="text-link" href="mailto:info@heliosdigitaltechnology.com?subject=Application%20development">Explore app development <span>→</span></a>
+          </article>
+          <article class="service-card" id="vibe-coding">
+            <div class="card-number">03 / VIBE CODING</div>
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-13-2 16"/></svg></div>
+            <h3>Vibe coding</h3>
+            <p>Turn your idea into a working digital product with AI-assisted development and experienced engineering review.</p>
+            <a class="text-link" href="mailto:info@heliosdigitaltechnology.com?subject=Vibe%20coding">Explore vibe coding <span>→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="principle" id="approach">
+      <div class="shell principle-inner">
+        <div class="principle-copy">
+          <div class="eyebrow">Our mission</div>
+          <h2>Technology should empower, not complicate.</h2>
+          <p>We provide scalable, cost-effective digital solutions designed to help businesses grow, work more efficiently, and create lasting value.</p>
+        </div>
+        <div class="principle-points" aria-label="Our mission">
+          <div class="point"><strong>01</strong><span>Scalable solutions</span></div>
+          <div class="point"><strong>02</strong><span>Cost-effective</span></div>
+          <div class="point"><strong>03</strong><span>Built around your needs</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="shell contact-inner">
+        <div class="contact-copy">
+          <img class="brand-logo contact-logo" src="assets/helios-logo-light.svg" alt="Helios Digital Technology">
+          <div class="eyebrow">Have something in mind?</div>
+          <h2>Let’s make your next idea real.</h2>
+          <p>Tell us whether you need a website, an application, or want to explore an idea with Vibe Coding.</p>
+        </div>
+        <form class="contact-form" id="contact-form">
+          <label for="contact-name">Full name</label>
+          <input id="contact-name" name="name" type="text" placeholder="Insert full name" autocomplete="name" required>
+          <label for="contact-email">Email</label>
+          <input id="contact-email" name="email" type="email" placeholder="Insert email" autocomplete="email" required>
+          <label for="contact-question">Your question</label>
+          <textarea id="contact-question" name="question" placeholder="Write your question here…" required></textarea>
+          <button type="submit">Send message</button>
+          <p class="contact-form-note">Your email app will open with your message ready to send.</p>
+          <p class="contact-form-status" id="contact-form-status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <div>© 2026 Helios Digital Technology</div>
+      <div class="footer-meta"><a href="mailto:info@heliosdigitaltechnology.com">info@heliosdigitaltechnology.com</a><span>Ahmedabad, Gujarat, India</span></div>
+    </div>
+  </footer>
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const trigger = document.querySelector(".settings-trigger");
+      const menu = document.querySelector(".theme-menu");
+      const options = document.querySelectorAll(".theme-option");
+      const logos = document.querySelectorAll(".brand-logo");
+      const setTheme = (theme) => {
+        const light = theme === "light";
+        root.dataset.theme = light ? "light" : "dark";
+        logos.forEach((logo) => { logo.src = light ? "assets/helios-logo-light.svg" : "assets/helios-logo-dark.svg"; });
+        options.forEach((option) => option.setAttribute("aria-checked", String(option.dataset.themeOption === root.dataset.theme)));
+        try { localStorage.setItem("helios-theme-v2", light ? "light" : "dark"); } catch {}
+      };
+      const closeMenu = () => { menu.hidden = true; trigger.setAttribute("aria-expanded", "false"); };
+      try {
+        const saved = localStorage.getItem("helios-theme-v2");
+        if (saved === "light" || saved === "dark") setTheme(saved);
+      } catch {}
+      trigger.addEventListener("click", () => {
+        const opening = menu.hidden;
+        menu.hidden = !opening;
+        trigger.setAttribute("aria-expanded", String(opening));
+        if (opening) options[0].focus();
+      });
+      options.forEach((option) => option.addEventListener("click", () => { setTheme(option.dataset.themeOption); closeMenu(); trigger.focus(); }));
+      document.addEventListener("click", (event) => { if (!event.target.closest(".theme-controls")) closeMenu(); });
+      document.addEventListener("keydown", (event) => { if (event.key === "Escape" && !menu.hidden) { closeMenu(); trigger.focus(); } });
+      const contactForm = document.querySelector("#contact-form");
+      contactForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const details = new FormData(contactForm);
+        const subject = encodeURIComponent(`Website enquiry from ${details.get("name")}`);
+        const body = encodeURIComponent(`Name: ${details.get("name")}\nEmail: ${details.get("email")}\n\n${details.get("question")}`);
+        document.querySelector("#contact-form-status").textContent = "Opening your email app now. Review the message there and send it to Helios.";
+        window.location.href = `mailto:info@heliosdigitaltechnology.com?subject=${subject}&body=${body}`;
+      });
+    })();
+  </script>
+</body>
+</html>
