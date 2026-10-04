@@ -65,7 +65,7 @@ h1, h2, h3 { font-family: Manrope, "DM Sans", Inter, ui-sans-serif, system-ui, s
 .theme-picker { position: relative; }
 .settings-button { display: grid; width: 40px; height: 40px; place-items: center; padding: 0; border: 1px solid var(--line); border-radius: 10px; color: var(--muted); background: var(--surface); cursor: pointer; transition: color .18s ease, border-color .18s ease, background .18s ease; }
 .settings-button:hover, .settings-button[aria-expanded="true"] { color: var(--blue); border-color: color-mix(in srgb, var(--blue) 42%, var(--line)); }
-.settings-button svg { width: 19px; height: 19px; }
+.settings-button svg { width: 20px; height: 20px; }
 .theme-menu { position: absolute; z-index: 40; top: calc(100% + 10px); right: 0; width: 205px; padding: 8px; border: 1px solid var(--line); border-radius: 13px; background: var(--surface); box-shadow: var(--shadow); }
 .theme-menu-title { margin: 0; padding: 8px 10px; color: var(--quiet); font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .theme-option { display: flex; width: 100%; min-height: 40px; align-items: center; gap: 10px; padding: 0 10px; border: 0; border-radius: 8px; color: var(--ink); background: transparent; text-align: left; font-size: 13px; cursor: pointer; }
