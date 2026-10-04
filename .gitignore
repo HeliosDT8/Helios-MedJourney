@@ -3,3 +3,7 @@ node_modules/
 out/
 *.tsbuildinfo
 .DS_Store
+
+# Environment files may contain private API credentials.
+.env*
+!.env.example

@@ -266,6 +266,7 @@
     .contact-form input:focus, .contact-form textarea:focus { border-color: #55baf4; box-shadow: 0 0 0 3px rgba(37,99,255,.18); }
     .contact-form button { width: 100%; min-height: 48px; border: 0; border-radius: 9px; color: white; background: linear-gradient(105deg,#2563ff,#0ba9e9 62%,#7655f5); font: 700 14px "DM Sans",sans-serif; cursor: pointer; transition: filter .2s,transform .2s; }
     .contact-form button:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    .contact-form button:disabled { cursor: wait; opacity: .72; transform: none; }
     .contact-form-note, .contact-form-status { margin: 11px 0 0; color: #aab8d0; font-size: 11px; line-height: 1.5; }
     .contact-form-status:empty { display: none; }
     :root[data-theme="light"] .contact-form { border-color: rgba(23,52,94,.13); background: rgba(255,255,255,.75); box-shadow: 0 20px 52px rgba(19,47,90,.1); }
@@ -416,8 +417,8 @@
           <label for="contact-question">Your question</label>
           <textarea id="contact-question" name="question" placeholder="Write your question here…" required></textarea>
           <button type="submit">Send message</button>
-          <p class="contact-form-note">Your email app will open with your message ready to send.</p>
-          <p class="contact-form-status" id="contact-form-status" aria-live="polite"></p>
+          <p class="contact-form-note">We’ll send a confirmation to the email you provide.</p>
+          <p class="contact-form-status" id="contact-form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>
@@ -458,13 +459,46 @@
       document.addEventListener("click", (event) => { if (!event.target.closest(".theme-controls")) closeMenu(); });
       document.addEventListener("keydown", (event) => { if (event.key === "Escape" && !menu.hidden) { closeMenu(); trigger.focus(); } });
       const contactForm = document.querySelector("#contact-form");
-      contactForm.addEventListener("submit", (event) => {
+      const contactButton = contactForm.querySelector("button[type='submit']");
+      const contactStatus = document.querySelector("#contact-form-status");
+      let contactSubmitting = false;
+      contactForm.addEventListener("submit", async (event) => {
         event.preventDefault();
+        if (contactSubmitting) return;
+        contactSubmitting = true;
+        contactForm.setAttribute("aria-busy", "true");
+        contactButton.disabled = true;
+        contactButton.textContent = "Sending…";
+        contactStatus.textContent = "Sending your message…";
         const details = new FormData(contactForm);
-        const subject = encodeURIComponent(`Website enquiry from ${details.get("name")}`);
-        const body = encodeURIComponent(`Name: ${details.get("name")}\nEmail: ${details.get("email")}\n\n${details.get("question")}`);
-        document.querySelector("#contact-form-status").textContent = "Opening your email app now. Review the message there and send it to Helios.";
-        window.location.href = `mailto:info@heliosdigitaltechnology.com?subject=${subject}&body=${body}`;
+        try {
+          const response = await fetch("/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              name: details.get("name"),
+              email: details.get("email"),
+              message: details.get("question"),
+            }),
+          });
+          const result = await response.json().catch(() => null);
+          if (!response.ok) {
+            throw new Error(typeof result?.message === "string" ? result.message : "We couldn't send your inquiry. Please try again or email info@heliosdigitaltechnology.com.");
+          }
+          contactForm.reset();
+          contactStatus.dataset.state = "success";
+          contactStatus.setAttribute("role", "status");
+          contactStatus.textContent = "Thank you! Your inquiry has been submitted successfully. We'll get back to you soon.";
+        } catch (error) {
+          contactStatus.dataset.state = "error";
+          contactStatus.setAttribute("role", "alert");
+          contactStatus.textContent = error instanceof Error ? error.message : "We couldn't send your inquiry. Please try again or email info@heliosdigitaltechnology.com.";
+        } finally {
+          contactSubmitting = false;
+          contactForm.removeAttribute("aria-busy");
+          contactButton.disabled = false;
+          contactButton.textContent = "Send message";
+        }
       });
     })();
   </script>
