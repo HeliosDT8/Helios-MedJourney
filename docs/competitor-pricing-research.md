@@ -1,0 +1,31 @@
+# Competitor and adjacent pricing research
+
+**Checked:** 25 October 2026
+**Scope:** Publicly stated physician recruitment, clinic recruitment-support, and physician job-ad pricing that may help frame Helios MedJourney's Canadian GP and Family Physician offer.
+
+## Findings
+
+| Company / source | Service type | Published price | Currency | Fee model | Published replacement terms | Important qualifications |
+|---|---|---:|---|---|---|---|
+| [Merrick Global Talent — Employers](https://www.merrickglobal.com/employers) | International medical recruitment; employers | Not publicly disclosed | — | Enquiry and proposal; no numeric fee found on the employer page | Not publicly disclosed on the page reviewed | Closest international recruitment reference. Page describes employer recruitment scope and process, but no fee or replacement duration was published in the reviewed material. |
+| [MDSearch — Physician Recruitment](https://mdsearch.ca/physician-recruitment/) | Canadian physician recruitment; permanent, flexible, locum | Not publicly disclosed; quoted per search | CAD not specified on the reviewed page | Activity-aligned retained search or fixed-fee retained search; engagement fee activates search | Prorated retention guarantee mentioned for fixed-fee search; replacement/support terms governed by each engagement agreement | Physician-specific Canadian recruiter. Exact amounts and guarantee schedule are not public. It is not directly comparable to a no-upfront fixed placement fee. |
+| [Physicians Canada — Administrators](https://physicianscanada.net/administrators.html) | Canadian permanent, temporary, and locum placement | Not publicly disclosed | — | “No appointment, no placement fee”; proposal sets estimated cost | No period or specific replacement policy published on the page reviewed | A useful example of a contingent payment trigger, but not a published fixed-price comparison. |
+| [Asperia Recruitment & Consultancy — Careers](https://asperiamedical.com/careers/) | Clinic consultations and recruitment-support packages | Clinic Foundation $699; Clinic Support $1,199; Premium Recruitment $1,999 | CAD | Fixed consultation/support package; stated fee is credited toward recruitment fee if the clinic hires through Asperia R&C | Not publicly disclosed | These are 45–90 minute clinic support packages, not a comparable full-service physician placement fee. The page also lists doctor-facing consultations. |
+| [Flex People Solutions — Pricing](https://www.flexsolutions.ca/pricing/) | General Canadian recruiting models; not physician-specific | $90/hour; $7,500 retained; 12% of first-year base salary contingency | CAD not explicitly labelled on the reviewed pricing page | Hourly, retained, or contingency; listed replacement guarantee without duration | “Replacement guarantee” mentioned; duration and eligibility not shown on the pricing summary | Adjacent recruiting benchmark only. Different roles and scope mean these prices should not be compared as equivalent medical placement fees. |
+| [DoctorsManagement — HR Recruitment](https://www.doctorsmanagement.com/hr-recruitment/) | US medical-practice recruitment for managers, administrators, NP/PA roles | 15% of first-year compensation in total, plus an initial flat fee; flat fee amount not disclosed | USD context; page does not specify currency next to fee | Initial fee plus success-based balance; additional fees may apply | No exact replacement period stated on the reviewed page | Medical-practice recruiting but US-based and not physician GP placement; included only as a non-comparable adjacent model. |
+| [NLMA — Physician Recruiting Platforms](https://nlma.nl.ca/members/job-opportunities/physician-recruiting-platforms/) | Physician job-ad marketplaces and classifieds | Examples listed: locums.ca $105/post for 60 days; MDWork $150/post for 4 months; CMA Dr. Careers $300 standard / $375 premium for 30 days; CFPC classifieds $80–$330 depending on duration/feature; SRPC $150 for 3 months | CAD (page context; individual marketplace prices as displayed) | Job-posting fees, not managed recruitment | Not applicable | These are advertising costs, not candidate sourcing, screening, or placement services. Rates and plan details may change; verify with each provider before purchase. |
+
+## Assessment for Helios MedJourney
+
+Public full-service physician-recruitment prices and replacement periods are sparse. The closest directly relevant sources either quote per search or disclose a contingent payment model without a numeric price. The published prices that are easy to verify are mostly clinic consultations or job-board listings, which do not cover the same service scope as international sourcing, screening, interview coordination, and placement.
+
+Helios MedJourney's proposed CAD $15,000 founding offer and CAD $18,000 standard placement fee therefore cannot responsibly be described as below-market, discounted by a percentage, or cheaper than competitors based on this evidence. Position the offer around its disclosed scope, no upfront placement fee for the founding offer, written payment trigger, and clearly bounded replacement-search terms. Before using “founding” as a sales category, confirm internal eligibility criteria and whether the offer has an availability limit. Do not publish a limit unless it is real and current.
+
+The proposed one-search replacement policy should be finalized in the signed agreement, including the start-date trigger, notice deadline, employer cooperation, unchanged vacancy conditions, exclusions, and the consequence if no replacement candidate is found. The website identifies these terms as proposed and subject to legal review; it does not promise a refund or successful replacement hire.
+
+## Research limitations
+
+- Prices were checked on publicly accessible pages on the date above; some search-engine extracts may lag page changes.
+- A missing public price is recorded as **Not publicly disclosed**, not inferred from comparable agencies.
+- Job-posting, consultation, general-staffing, and US recruitment fees are not like-for-like with international physician placement.
+- Published prices can change. Confirm current scope, taxes, payment timing, and contractual guarantees directly with each provider.

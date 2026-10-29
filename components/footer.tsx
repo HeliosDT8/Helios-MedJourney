@@ -1,22 +1,2 @@
-import Link from "next/link";
-
-export function Footer() {
-  return (
-    <footer className="site-footer">
-      <div className="container footer-inner">
-        <span>© {new Date().getFullYear()} Helios Digital Technology</span>
-        <nav className="footer-links" aria-label="Footer navigation">
-          <Link href="/services">Services</Link>
-          <Link href="/mission">Mission</Link>
-          <Link href="/contact">Contact</Link>
-          <Link href="/privacy">Privacy</Link>
-          <Link href="/terms">Terms</Link>
-        </nav>
-        <div className="footer-contact">
-          <a href="mailto:info@heliosdigitaltechnology.com">info@heliosdigitaltechnology.com</a>
-          <span>Ahmedabad, Gujarat, India</span>
-        </div>
-      </div>
-    </footer>
-  );
-}
+import Image from "next/image";import Link from "next/link";import {SITE_NAME,SITE_EMAIL} from "@/lib/seo";
+export function Footer(){return <footer className="footer"><div className="container footer-grid"><div><Link href="/" className="brand"><Image className="brand-emblem" src="/global-healthcare-h-emblem.png" alt="" width={1536} height={1024}/><span>{SITE_NAME}</span></Link><p>Connecting Medical Talent. Strengthening Canadian Healthcare.</p></div><div><strong>Explore</strong><Link href="/employers">For employers</Link><Link href="/physicians">For physicians</Link><Link href="/employers/onboarding">Clinic onboarding</Link><Link href="/pricing">Pricing</Link><Link href="/about">About us</Link></div><div><strong>Information</strong><Link href="/contact">Contact</Link><Link href="/privacy">Privacy policy</Link><Link href="/terms">Terms of service</Link>{SITE_EMAIL&&<a href={`mailto:${SITE_EMAIL}`}>{SITE_EMAIL}</a>}</div></div><div className="container footer-bottom">© {new Date().getFullYear()} {SITE_NAME}. All rights reserved.<span>Registration, employment and immigration eligibility depend on individual and jurisdictional requirements.</span></div></footer>}
