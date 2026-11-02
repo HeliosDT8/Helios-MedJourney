@@ -10,7 +10,15 @@ cp .env.example .env.local
 npm run dev
 ```
 
-Set `NEXT_PUBLIC_BRAND_NAME`, `NEXT_PUBLIC_SITE_URL`, and (if one is approved for publication) `NEXT_PUBLIC_CONTACT_EMAIL` in `.env.local`. The default URL is `https://example.com`; replace it before launch so canonical URLs, Open Graph links, and the sitemap use the real production domain.
+Set `NEXT_PUBLIC_BRAND_NAME`, `NEXT_PUBLIC_SITE_URL`, and (if one is approved for publication) `NEXT_PUBLIC_CONTACT_EMAIL` in `.env.local`. The confirmed production domain is `https://helios-med-journey.vercel.app`; the code uses it as the default for canonicals, Open Graph URLs, the sitemap, and robots.txt. Override it only for an approved alternate deployment.
+
+## SEO configuration
+
+The Next.js App Router emits page-specific canonical metadata, Open Graph and X/Twitter cards, `robots.txt`, and `sitemap.xml`. The sitemap contains the homepage and public employer, onboarding, pricing, physician, about, contact, approach, privacy, and terms pages. Legacy redirect routes are excluded. Structured data includes Organization, WebSite, Service, and per-page BreadcrumbList JSON-LD.
+
+Google Search Console HTML-tag verification is configured in the root metadata using the value supplied for this site. For Bing Webmaster Tools, set `NEXT_PUBLIC_BING_SITE_VERIFICATION` in the deployment environment. No Google Analytics 4 or Google Tag Manager IDs are configured; tracking scripts are not included. Before enabling analytics, supply a GA4 Measurement ID (`G-…`) or GTM Container ID (`GTM-…`) and approve the visitor-consent and privacy-policy handling.
+
+Sitemap and robots endpoints: `/sitemap.xml` and `/robots.txt`. Submit the sitemap in Search Console or Bing Webmaster Tools after deployment. No sitemap submission or indexing claim is made by this repository.
 
 ## Enquiry delivery
 

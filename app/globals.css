@@ -69,8 +69,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 /* Homepage hero */
 .hero { position: relative; min-height: 680px; overflow: hidden; background: #dce8eb; }
-.hero-photo { position: absolute; inset: 0; background-image: radial-gradient(ellipse at 78% 20%, rgba(22,140,131,.2), transparent 38%), linear-gradient(90deg, rgba(242,246,247,.97) 0%, rgba(242,246,247,.9) 43%, rgba(242,246,247,.2) 88%), url('/og-image.jpg'); background-position: center 38%; background-size: cover; }
-.hero-grid { position: relative; display: grid; min-height: 680px; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 56px; padding-block: 74px; }
+.hero-photo { position: absolute; inset: 0; overflow: hidden; }
+.hero-photo img { z-index: 0; object-fit: cover; object-position: center 38%; }
+.hero-photo::after { position: absolute; z-index: 1; inset: 0; background-image: radial-gradient(ellipse at 78% 20%, rgba(22,140,131,.2), transparent 38%), linear-gradient(90deg, rgba(242,246,247,.97) 0%, rgba(242,246,247,.9) 43%, rgba(242,246,247,.2) 88%); content: ''; }
+.hero-grid { position: relative; z-index: 2; display: grid; min-height: 680px; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 56px; padding-block: 74px; }
 .hero-content { max-width: 670px; }
 .hero h1, .subhero h1, .contact-page h1 { max-width: 760px; margin: 0 0 22px; color: var(--navy); font-family: var(--font-heading); font-size: clamp(48px, 5.15vw, 68px); font-weight: 650; letter-spacing: -.065em; line-height: 1.02; }
 .hero h1 i { color: var(--teal-dark); font-weight: 600; }
@@ -426,7 +428,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .section { padding-block: 64px; }
   .brand { gap: 8px; font-size: 13px; }
   .brand-emblem { width: 48px; height: 36px; }
-  .hero-photo { background-image: radial-gradient(ellipse at 75% 15%, rgba(22,140,131,.24), transparent 38%), linear-gradient(180deg,rgba(242,246,247,.95),rgba(242,246,247,.87) 65%,rgba(242,246,247,.65)),url('/og-image.jpg'); background-position: 60% center; }
+  .hero-photo img { object-position: 60% center; }
+  .hero-photo::after { background-image: radial-gradient(ellipse at 75% 15%, rgba(22,140,131,.24), transparent 38%), linear-gradient(180deg,rgba(242,246,247,.95),rgba(242,246,247,.87) 65%,rgba(242,246,247,.65)); }
   .hero-grid { display: block; padding-block: 60px 38px; }
   .hero h1 { font-size: clamp(43px, 10.5vw, 60px); }
   .hero .lead { font-size: 16px; }
@@ -524,7 +527,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 @media (min-width: 1500px) {
   :root { --content-width: 1240px; }
   .hero, .hero-grid { min-height: 740px; }
-  .hero-photo { background-position: center 35%; }
+  .hero-photo img { object-position: center 35%; }
 }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .site-header, .hero-card, .subhero-aside, .service-card, .feature-panel, .pricing-strip article, .pricing-strip aside, .price-card, .form-card, .wizard-progress, .wizard-card, .wizard-success { background-color: #f2f6f7; }
